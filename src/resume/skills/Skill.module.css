@@ -1,0 +1,13 @@
+.card {
+  padding: 10px;
+}
+
+.skillMeterBack {
+  height: 20px;
+  background-color: lightgray;
+}
+
+.skillMeterFore {
+  height: 20px;
+  background-color: blue;
+}
