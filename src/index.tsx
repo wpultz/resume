@@ -65,7 +65,7 @@ const initialState = {
       company: 'Mobelux',
       positions: [
         {
-          title: 'Web Developer - newcustom.com',
+          title: 'Web Developer, newcustom.com',
           description: 'did all sorts of stuff',
           highlights: [
             'Expanded the checkout flow, account management pages, and product configuration flow of newcustom.com utilizing Django, React, Redux, GraphQL, and Mapbox.',
@@ -76,7 +76,7 @@ const initialState = {
           end: 'Jun. 2016'
         },
         {
-          title: 'Developer - The Design Network',
+          title: 'Developer, The Design Network',
           description: '',
           highlights: [
             "Built and published a Roku Channel from scratch for The Design Network using Roku's BrightScript language and SceneGraph BrightScript templates.",
@@ -86,7 +86,7 @@ const initialState = {
           end: 'Sept. 2016'
         },
         {
-          title: 'Staff Augmentation - Upthere Inc.',
+          title: 'Staff Augmentation, Upthere Inc.',
           description: '',
           highlights: [
             'Improved and expanded upon the existing Upthere Home web application using React, Redux, and Express.',

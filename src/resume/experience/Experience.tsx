@@ -18,6 +18,11 @@ export function Experience(props: IExperienceProps) {
         {experience.positions.map(pos => (
           <div key={pos.title}>
             <Typography variant="h6">{pos.title}</Typography>
+            <Typography variant="subtitle2">
+              <i>
+                {pos.start} - {pos.end}
+              </i>
+            </Typography>
             <ul>
               {pos.highlights.map((highlight, i) => (
                 <li key={i}>
