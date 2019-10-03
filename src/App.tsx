@@ -3,11 +3,11 @@ import * as React from 'react'
 import { Resume } from './resume'
 
 // @ts-ignore
-const styles = require('./App.css')
+import styles from './App.module.css'
 
 function App() {
   return (
-    <div className="App" style={{ maxWidth: 1200, margin: 'auto', paddingLeft: 100, paddingRight: 100 }}>
+    <div className={styles.App}>
       <Resume />
     </div>
   )
