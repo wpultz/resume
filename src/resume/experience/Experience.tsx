@@ -2,6 +2,9 @@ import * as React from 'react'
 
 import { IExperience } from '../../modules/experience'
 
+// @ts-ignore
+import styles from './Experience.module.css'
+
 interface IExperienceProps {
   experience: IExperience
 }
@@ -23,7 +26,9 @@ export function Experience(props: IExperienceProps) {
             </h3>
             <ul>
               {pos.highlights.map((highlight, i) => (
-                <li key={i}>{highlight}</li>
+                <li key={i} className={styles.listItem}>
+                  {highlight}
+                </li>
               ))}
             </ul>
           </div>
