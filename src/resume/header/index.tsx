@@ -13,10 +13,6 @@ export function Header() {
       </Typography>
       <Typography variant="subtitle2">
         Mechanicsville, VA | <a href="mailto:wpultz@gmail.com">wpultz@gmail.com</a> |{' '}
-        <a href="https://github.com/wpultz" target="_blank">
-          GitHub
-        </a>{' '}
-        |{' '}
         <a href="https://linkedin.com/in/wyatt-pultz-42360232" target="_blank">
           LinkedIn
         </a>

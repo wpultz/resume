@@ -3,3 +3,89 @@
   padding: 40px;
   margin: auto;
 }
+
+body {
+  background-color: #fffbf0;
+  color: #442410;
+}
+
+a {
+  color: #442410;
+}
+
+/**
+* base styles for the sidebar
+*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  border-right: 1px solid #dbac6e;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fffbf0;
+}
+
+.sidebarDesc {
+  line-height: 1.2em;
+  margin: 12px;
+}
+
+.sidebarDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+* medium/large screen styles for sidebar and it's content
+*/
+@media (min-width: 700px) {
+  .sidebar {
+    height: 100vh;
+    width: 300px;
+    flex-direction: column;
+  }
+  .content {
+    margin-left: 300px;
+  }
+  .sidebarProfileImg {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+  }
+}
+
+/**
+* small screen styles for sidebar and it's content
+*/
+@media (max-width: 700px) {
+  .sidebar {
+    padding: 10px;
+    height: 100px;
+    width: 100vw;
+    flex-direction: row;
+    border-bottom: 1px solid #dbac6e;
+  }
+  .sidebarDetail {
+    align-items: start;
+  }
+  .content {
+    margin-top: 100px;
+  }
+  .sidebarProfileImg {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    margin-right: 20px;
+  }
+  .sidebarName {
+    margin: 0px;
+  }
+  .sidebarDesc {
+    display: none;
+  }
+}
