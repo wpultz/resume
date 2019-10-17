@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import { IExperience } from '../../modules/experience'
 
-import Typography from '@material-ui/core/Typography'
-
 interface IExperienceProps {
   experience: IExperience
 }
@@ -13,21 +11,19 @@ export function Experience(props: IExperienceProps) {
 
   return (
     <div>
-      <Typography variant="h5">{experience.company}</Typography>
+      <h2>{experience.company}</h2>
       <div>
         {experience.positions.map(pos => (
           <div key={pos.title}>
-            <Typography variant="h6">{pos.title}</Typography>
-            <Typography variant="subtitle2">
+            <h3>
+              {pos.title}&nbsp;
               <i>
                 {pos.start} - {pos.end}
               </i>
-            </Typography>
+            </h3>
             <ul>
               {pos.highlights.map((highlight, i) => (
-                <li key={i}>
-                  <Typography variant="body1">{highlight}</Typography>
-                </li>
+                <li key={i}>{highlight}</li>
               ))}
             </ul>
           </div>

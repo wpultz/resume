@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { Typography } from '@material-ui/core'
-
 // @ts-ignore
 import styles from './ContentCard.module.css'
 
@@ -13,7 +11,7 @@ interface IContentCardProps {
 export function ContentCard(props: IContentCardProps) {
   return (
     <div>
-      <Typography variant="h4">{props.title}</Typography>
+      <h1>{props.title}</h1>
       <div className={styles.content}>{props.content}</div>
     </div>
   )

@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { Typography } from '@material-ui/core'
-
 import { ISkill } from '../../modules/skills'
 
 const styles = require('./Skill.module.css')
@@ -18,7 +16,7 @@ export function Skill(props: ISkillProps) {
 
   return (
     <div className={styles.card}>
-      <Typography variant="h5">{skill.title}</Typography>
+      <h2>{skill.title}</h2>
       <div className={styles.skillMeterBack}>
         <div className={styles.skillMeterFore} style={{ width: `${skillPct}%` }}></div>
       </div>
