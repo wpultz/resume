@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Card, Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 
 import { ISkill } from '../../modules/skills'
 
@@ -17,11 +17,11 @@ export function Skill(props: ISkillProps) {
   const skillPct = skill.level * 10
 
   return (
-    <Card className={styles.card}>
+    <div className={styles.card}>
       <Typography variant="h5">{skill.title}</Typography>
       <div className={styles.skillMeterBack}>
         <div className={styles.skillMeterFore} style={{ width: `${skillPct}%` }}></div>
       </div>
-    </Card>
+    </div>
   )
 }

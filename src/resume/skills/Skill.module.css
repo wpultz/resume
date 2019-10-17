@@ -1,5 +1,6 @@
 .card {
   padding: 10px;
+  border-radius: 4px;
 }
 
 .skillMeterBack {
@@ -9,5 +10,5 @@
 
 .skillMeterFore {
   height: 20px;
-  background-color: blue;
+  background-color: #dbac6e;
 }
