@@ -19,6 +19,22 @@ interface IAction {
 const defaultState: IEducation[] = []
 
 export default function reducer(state = defaultState, action: IAction) {
+  switch (action.type) {
+    case EducationActions.AddEducation:
+      return [...state, action.payload]
+
+    case EducationActions.RemoveEducation:
+      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)]
+
+    case EducationActions.UpdateEducation: {
+      const { idx, ed } = action.payload
+
+      const updatedEd = { ...state[idx], ...ed }
+
+      return [...state.slice(0, idx), updatedEd, ...state.slice(idx + 1)]
+    }
+  }
+
   return state
 }
 
@@ -29,17 +45,17 @@ export function addEducation(ed: IEducation) {
   }
 }
 
-export function removeEducation(title: string) {
+export function removeEducation(idx: number) {
   return {
     type: EducationActions.RemoveEducation,
-    payload: title
+    payload: idx
   }
 }
 
-export function UpdateEducation(ed: IEducation) {
-  return { type: EducationActions.UpdateEducation, payload: ed }
+export function updateEducation(idx: number, ed: IEducation) {
+  return { type: EducationActions.UpdateEducation, payload: { idx, ed } }
 }
 
 export function getEducations(state: any): IEducation[] {
-  return state['educations']
+  return state.educations
 }

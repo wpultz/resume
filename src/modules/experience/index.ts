@@ -32,66 +32,49 @@ export default function reducer(state = defaultState, action: IAction) {
       return [...state, action.payload]
 
     case ExperienceActions.RemoveExperience:
-      return state.filter(experience => experience.company !== action.payload)
+      return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)]
 
     case ExperienceActions.UpdateExperience: {
-      const updateIdx = state.findIndex(exp => exp.company === action.payload.company)
+      const { experienceIdx, exp } = action.payload
 
-      if (updateIdx >= 0) {
-        return [...state.slice(0, updateIdx), { ...state[updateIdx], ...action.payload }, ...state.slice(updateIdx + 1)]
-      }
-      return state
+      return [...state.slice(0, experienceIdx), { ...state[experienceIdx], ...exp }, ...state.slice(experienceIdx + 1)]
     }
 
     case ExperienceActions.AddPosition: {
-      const expIdx = state.findIndex(exp => exp.company === action.payload.company)
+      const { experienceIdx, position } = action.payload
 
-      if (expIdx >= 0) {
-        return [
-          ...state.slice(0, expIdx),
-          { ...state[expIdx], positions: state[expIdx].positions.concat(action.payload.position) },
-          ...state.slice(expIdx + 1)
-        ]
-      }
-      return state
+      return [
+        ...state.slice(0, experienceIdx),
+        { ...state[experienceIdx], positions: state[experienceIdx].positions.concat(position) },
+        ...state.slice(experienceIdx + 1)
+      ]
     }
 
     case ExperienceActions.RemovePosition: {
-      const expIdx = state.findIndex(exp => exp.company === action.payload.company)
+      const { experienceIdx, positionIdx } = action.payload
+      const positionToRemove = state[experienceIdx].positions[positionIdx]
 
-      if (expIdx >= 0) {
-        return [
-          ...state.slice(0, expIdx),
-          { ...state[expIdx], positions: state[expIdx].positions.filter(pos => pos.title !== action.payload.title) },
-          ...state.slice(expIdx + 1)
-        ]
-      } else {
-        return state
-      }
+      return [
+        ...state.slice(0, experienceIdx),
+        { ...state[experienceIdx], positions: state[experienceIdx].positions.filter(pos => pos !== positionToRemove) },
+        ...state.slice(experienceIdx + 1)
+      ]
     }
 
     case ExperienceActions.UpdatePosition: {
-      const expIdx = state.findIndex(exp => exp.company === action.payload.company)
+      const { experienceIdx, positionIdx, position } = action.payload
+      const positions = state[experienceIdx].positions
+      const updatedPositions = [
+        ...positions.slice(0, positionIdx),
+        { ...positions[positionIdx], ...position },
+        ...positions.slice(positionIdx + 1)
+      ]
 
-      if (expIdx >= 0) {
-        const posIdx = state[expIdx].positions.findIndex(pos => pos.title === action.payload.position.title)
-
-        if (posIdx >= 0) {
-          const updatedPositions = [
-            ...state[expIdx].positions.slice(0, posIdx),
-            { ...state[expIdx].positions[posIdx], ...action.payload.position },
-            ...state[expIdx].positions.slice(posIdx + 1)
-          ]
-
-          return [
-            ...state.slice(0, expIdx),
-            { ...state[expIdx], positions: updatedPositions },
-            ...state.slice(expIdx + 1)
-          ]
-        }
-      }
-      // Couldn't find company or title
-      return state
+      return [
+        ...state.slice(0, experienceIdx),
+        { ...state[experienceIdx], positions: updatedPositions },
+        ...state.slice(experienceIdx + 1)
+      ]
     }
 
     default:
@@ -106,45 +89,49 @@ export function addExperience(exp: IExperience) {
   }
 }
 
-export function removeExperience(expTitle: string) {
+export function removeExperience(idx: number) {
   return {
     type: ExperienceActions.RemoveExperience,
-    payload: expTitle
+    payload: idx
   }
 }
 
-export function updateExperience(exp: IExperience) {
+export function updateExperience(experienceIdx: number, exp: IExperience) {
   return {
     type: ExperienceActions.UpdateExperience,
-    payload: exp
+    payload: {
+      experienceIdx,
+      exp
+    }
   }
 }
 
-export function addPosition(company: string, position: IPosition) {
+export function addPosition(experienceIdx: number, position: IPosition) {
   return {
     type: ExperienceActions.AddPosition,
     payload: {
-      company,
+      experienceIdx,
       position
     }
   }
 }
 
-export function removePosition(company: string, title: string) {
+export function removePosition(experienceIdx: number, positionIdx: number) {
   return {
     type: ExperienceActions.RemovePosition,
     payload: {
-      company,
-      title
+      experienceIdx,
+      positionIdx
     }
   }
 }
 
-export function updatePosition(company: string, position: IPosition) {
+export function updatePosition(experienceIdx: number, positionIdx: number, position: IPosition) {
   return {
     type: ExperienceActions.UpdatePosition,
     payload: {
-      company,
+      experienceIdx,
+      positionIdx,
       position
     }
   }

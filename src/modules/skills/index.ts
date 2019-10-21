@@ -1,7 +1,7 @@
 export enum SkillActions {
   AddSkill = 'ADD_SKILL',
   RemoveSkill = 'REMOVE_SKILL',
-  UpdateSkillLevel = 'UPDATE_SKILL_LEVEL'
+  UpdateSkill = 'UPDATE_SKILL_LEVEL'
 }
 
 export type SkillLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
@@ -22,19 +22,18 @@ export default function reducer(state = defaultState, action: IAction) {
   switch (action.type) {
     case SkillActions.AddSkill:
       return [...state, action.payload]
-    case SkillActions.RemoveSkill:
-      return state.filter(skill => skill.title !== action.payload)
-    case SkillActions.UpdateSkillLevel:
-      const targettedSkillIdx = state.findIndex(skill => skill.title === action.payload.title)
-      if (targettedSkillIdx >= 0) {
-        return [
-          ...state.slice(0, targettedSkillIdx),
-          { ...state[targettedSkillIdx], level: action.payload.level },
-          ...state.slice(targettedSkillIdx + 1)
-        ]
-      } else {
-        return state
-      }
+
+    case SkillActions.RemoveSkill: {
+      const skillToRemove = state[action.payload]
+      return state.filter(skill => skill !== skillToRemove)
+    }
+
+    case SkillActions.UpdateSkill: {
+      const { idx, skill } = action.payload
+
+      return [...state.slice(0, idx), { ...state[idx], ...skill }, ...state.slice(idx + 1)]
+    }
+
     default:
       return state
   }
@@ -47,19 +46,19 @@ export function addSkill(skill: ISkill) {
   }
 }
 
-export function removeSkill(skillTitle: string) {
+export function removeSkill(idx: number) {
   return {
     type: SkillActions.RemoveSkill,
-    payload: skillTitle
+    payload: idx
   }
 }
 
-export function updateSkillLevel(title: string, skillLevel: SkillLevel) {
+export function updateSkill(idx: number, skill: ISkill) {
   return {
-    type: SkillActions.UpdateSkillLevel,
+    type: SkillActions.UpdateSkill,
     payload: {
-      title,
-      skillLevel
+      idx,
+      skill
     }
   }
 }
