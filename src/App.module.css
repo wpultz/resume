@@ -4,15 +4,6 @@
   margin: auto;
 }
 
-body {
-  background-color: #fffbf0;
-  color: #442410;
-}
-
-a {
-  color: #442410;
-}
-
 /**
 * base styles for the sidebar
 */
@@ -21,11 +12,11 @@ a {
   top: 0;
   left: 0;
   display: flex;
-  border-right: 1px solid #dbac6e;
+  border-right: 1px solid var(--color-foreground);
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #fffbf0;
+  background-color: var(--color-surface);
 }
 
 .sidebarDesc {
@@ -68,7 +59,7 @@ a {
     height: 100px;
     width: 100vw;
     flex-direction: row;
-    border-bottom: 1px solid #dbac6e;
+    border-bottom: 1px solid var(--color-foreground);
   }
   .sidebarDetail {
     align-items: start;

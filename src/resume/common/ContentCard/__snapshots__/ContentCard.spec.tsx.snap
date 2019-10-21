@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentCard component Snapshots should match snapshot 1`] = `
+<div>
+  <h1>
+    Big Wolf
+  </h1>
+  <div
+    className="content"
+  >
+    On campus
+  </div>
+</div>
+`;
+
+exports[`ContentCard component Snapshots should render with React content 1`] = `
+<div>
+  <h1>
+    This little piggy
+  </h1>
+  <div
+    className="content"
+  >
+    <div>
+      Ate roast beef
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ContentCard component Snapshots should render with string content 1`] = `
+<div>
+  <h1>
+    This little piggy
+  </h1>
+  <div
+    className="content"
+  >
+    Went to market
+  </div>
+</div>
+`;

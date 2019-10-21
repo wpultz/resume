@@ -12,14 +12,14 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.sidebar}>
-        <img src={profileImg} className={styles.sidebarProfileImg} />
+        <img src={profileImg} className={styles.sidebarProfileImg} alt="profile" />
         <div className={styles.sidebarDetail}>
           <h1 className={styles.sidebarName}>Wyatt Pultz</h1>
           <div>
             <strong>
               <a href="mailto:wpultz@gmail.com">Email</a>
               {' | '}
-              <a href="https://linkedin.com/in/wyatt-pultz-42360232" target="_blank">
+              <a href="https://linkedin.com/in/wyatt-pultz-42360232" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </strong>
