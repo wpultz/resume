@@ -1,4 +1,20 @@
+# Welcome!
+
+Hello and welcome to my resume repository! This is a React/Redux web application bootstrapped with create-create-app that shows a sample of my work with React, Redux, unit testing, TypeScript and project structure. There are a few areas of particular interest.
+
+## Redux
+
+[This directory](src/modules/) holds the bulk of the Redux work. I have implemented Redux modules in a pattern similar to the "ducks" modules pattern. Each module contains the reducer, action constants, action creators, and selectors for each entity type in the store (education, experience, and skills). Each module is also tested using Jest.
+
+## React
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Styling
+
+Components may have their own CSS files. Component CSS files are imported as CSS modules, which comes pre-configured in create-react-app.
+
+# From the create-react-app README...
 
 ## Available Scripts
 
