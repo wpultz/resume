@@ -55,8 +55,8 @@ const initialState = {
             'Led the architecture and development of an Electron application using TypeScript, React, React hooks, React context, and GraphQL.',
             'Architected a shared library of React components and stylesheets built with TypeScript, React, hooks, and context, tested with Jest, Enzyme and Storybook, and bundled with Webpack.',
             'Created and published JS libraries shared across Western Digital applications as NPM modules.',
-            'Architected, developed, and shipped the Sandisk Flashback web application in Fall 2018 (https://www.flashbackapp.com). Flashback is a cloud backup service for select Sandisk drives. The Flashback web application allows users to view, search, and share their backed up content. Sample account available on request.',
-            'Shipped ongoing improvements and bug fixes for the Upthere Home web application (https://app.upthere.com). Upthere Home is a cloud storage service that allows users to upload and sync content from their phone or desktop to the cloud. The web application empowers users to upload content, organize content into collections, and share their content. Sample account available on request.'
+            'Architected, developed, and shipped the Sandisk Flashback web application in Fall 2018 (https://www.flashbackapp.com). Flashback is a cloud backup service for select Sandisk drives. The Flashback web application allows users to view, search, and share their backed up content.',
+            'Shipped ongoing improvements and bug fixes for the Upthere Home web application (https://app.upthere.com). Upthere Home is a cloud storage service that allows users to upload and sync content from their phone or desktop to the cloud. The web application empowers users to upload content, organize content into collections, and share their content.'
           ],
           start: 'Dec. 2017',
           end: 'Present'
